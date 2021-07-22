@@ -1,10 +1,12 @@
 pipeline {
            agent any
            stages {
-                stage("Hello") {
+           
+           stage("Hello") {
                      steps {
                          echo 'Hello World!!!!'
                       }
+                  }
 
            stage("Build") {
                      steps {
@@ -12,8 +14,9 @@ pipeline {
                           echo 'Checkout branch'
                           script {
                           image = docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
-                  }
+                     }
                 }
+                      
            stage("Push") {
                      steps {
                          withCredentials([usernamePassword(credentialsId: 'jenkins-docker', usernameVariable: 'login', passwordVariable: 'password')])
@@ -26,4 +29,4 @@ pipeline {
                 }
            }
       }
-
+}
