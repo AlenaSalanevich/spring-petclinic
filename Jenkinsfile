@@ -1,7 +1,6 @@
 pipeline {
-           agent any
-           stages {
-           
+  agent any
+       stages {
            stage("Hello") {
                      steps {
                          echo 'Hello World!!!!'
@@ -14,7 +13,8 @@ pipeline {
                           echo 'Checkout branch'
                           script {
                           image = docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
-                     }
+                       }
+                    }
                 }
                       
            stage("Push") {
@@ -27,6 +27,5 @@ pipeline {
                         """
                      }
                 }
-           }
-      }
-}
+          }
+   }
