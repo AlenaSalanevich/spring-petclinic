@@ -9,7 +9,7 @@ pipeline {
 
            stage("Build") {
                      steps {
-                          git url: '', branch: 'master'
+                          git url: 'https://github.com/AlenaSalanevich/spring-petclinic', branch: 'main'
                           echo 'Checkout branch'
                           script {
                           image = docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
