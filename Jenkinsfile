@@ -9,7 +9,7 @@ pipeline {
 
            stage("Build") {
                      steps {
-                          git url: '', branch: 'jenkins-test'
+                          git url: '', branch: 'master'
                           echo 'Checkout branch'
                           script {
                           image = docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
