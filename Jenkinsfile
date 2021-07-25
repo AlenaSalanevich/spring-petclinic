@@ -14,9 +14,12 @@ pipeline {
                        
                      echo 'Checkout branch'
                        
-                     sh 'mvn clean package'
+                    def MAV_HOME = tool name: 'mvn', type: 'maven'
+                    def MVN_CMD="${MVN_HOME}/bin/mvn"
+                       
+                    sh "${MVN_CMD} clean package"
                       
-                     echo 'Build app'
+                    echo 'Build app'
                        
 
                        step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: 'https://github.com/AlenaSalanevich/spring-petclinic', fromRegistry: [], pushCredentialsId: 'jenkins-docker', pushOnSuccess: false, tagsString: 'asalanevich/spring-petclinic:${env.BUILD_ID}'])
