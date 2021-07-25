@@ -11,9 +11,10 @@ pipeline {
                      steps {
                           git url: 'https://github.com/AlenaSalanevich/spring-petclinic', branch: 'main'
                           echo 'Checkout branch'
-                          script {
-                          image = docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
-                       }
+                          def app =  docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
+                          app.push()
+                          app.push 'latest'
+                       
                     }
                 }
                       
@@ -23,7 +24,7 @@ pipeline {
                          sh """
                          docker login -u ${login} -p ${password}
                          docker push asalanevich/spring-petclinic:${env.BUILD_ID}
-                        docker push asalanevich/spring-petclinic:latest
+                         docker push asalanevich/spring-petclinic:latest
                         """
                      }
                 }
