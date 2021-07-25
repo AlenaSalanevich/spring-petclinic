@@ -13,7 +13,8 @@ pipeline {
             script {
               def MVNHOME = tool name: 'mvn', type: 'maven'
               def MVNCMD = "${MVNHOME}/bin/mvn"
-              sh "${MVNCMD} clean package"
+              
+              sh "if [ -z "$JAVA_HOME" ] && [ -x "/usr/libexec/java_home" ]; then export JAVA_HOME=`/usr/libexec/java_home -v1.8.0` fi ${MVNCMD} clean package"
             }
 
       }
