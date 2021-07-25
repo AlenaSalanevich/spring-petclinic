@@ -10,7 +10,7 @@ pipeline {
          stage ('Mavne package') {
           steps {
          
-            sscript {
+            script {
               def MVNHOME = tool name: 'mvn', type: 'maven'
               def MVNCMD = "${MVNHOME}/bin/mvn"
               sh "${MVNCMD} clean package"
