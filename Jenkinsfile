@@ -14,10 +14,10 @@ pipeline {
                        
                      echo 'Checkout branch'
                        
-                    def MAV_HOME = tool name: 'mvn', type: 'maven'
-                    def MVN_CMD = "${MVN_HOME}/bin/mvn"
+                    def MVNHOME = tool name: 'mvn', type: 'maven'
+                    def MVNCMD = "${MVNHOME}/bin/mvn"
                        
-                    sh "${MVN_CMD} clean package"
+                    sh "${MVNCMD} clean package"
                       
                     echo 'Build app'
                        
