@@ -11,10 +11,12 @@ pipeline {
                      steps {
                           git url: 'https://github.com/AlenaSalanevich/spring-petclinic', branch: 'main'
                           echo 'Checkout branch'
+                         script{
                           def app =  docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
-                          app.push()
-                          app.push 'latest'
-                       
+//                           app.push 'asalanevich/spring-petclinic:${env.BUILD_ID}'
+//                           app.push 'latest'
+                          }
+
                     }
                 }
                       
