@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  node{
        stages {
            stage('Hello') {
                      steps {
@@ -14,7 +15,7 @@ pipeline {
               def MVNHOME = tool name: 'mvn', type: 'maven'
               def MVNCMD = "${MVNHOME}/bin/mvn"
               
-              sh "${MVNCMD} clean package"
+              //sh "${MVNCMD} clean package"
             }
 
       }
@@ -48,4 +49,5 @@ pipeline {
                 }
           }
      }
+  }
 }
