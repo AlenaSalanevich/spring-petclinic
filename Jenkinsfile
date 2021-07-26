@@ -30,7 +30,7 @@ pipeline {
                      echo 'Checkout branch'
                  
  //                      step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: 'https://github.com/AlenaSalanevich/spring-petclinic', fromRegistry: [], pushCredentialsId: 'jenkins-docker', pushOnSuccess: false, tagsString: 'asalanevich/spring-petclinic:${env.BUILD_ID}'])
-                     node ('any'){
+                     node ('master'){
                          script{
                        
                            def app =  docker.build("asalanevich/spring-petclinic:${env.BUILD_ID}")
