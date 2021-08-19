@@ -1,0 +1,74 @@
+databaseChangeLog:
+
+  -  changeSet:
+       id:  1
+       author:  alena
+       changes:
+         -  createTable:
+              tableName:  companies
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  name
+                     type:  varchar(50)
+                -  column:
+                     name:  address
+                     type:  varchar(50)
+                     constraints:
+                       nullable:  false
+                -  column:
+                     name:  state
+                     type:  char(2)
+
+  -  changeSet:
+       id:  2
+       author:  alena
+       changes:
+         -  createTable:
+              tableName:  employees
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  name
+                     type:  varchar(50)
+                -  column:
+                     name:  address
+                     type:  varchar(50)
+                     constraints:
+                       nullable:  false
+                -  column:
+                     name:  email
+                     type:  char(20)
+  -  changeSet:
+       id:  3
+       author:  alena
+       changes:
+         -  addColumn:
+              tableName:  employees
+              columns:
+                -  column:
+                     name:  username
+                     type:  varchar(8)
+
+  -  changeSet:
+       id:  4
+       author:  alena
+       changes:
+         -  addLookupTable:
+              existingTableName:  companies
+              existingColumnName:  state
+              newTableName:  state
+              newColumnName:  id
+              newColumnDataType:  char(2)
