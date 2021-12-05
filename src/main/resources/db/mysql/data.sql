@@ -2,8 +2,9 @@ INSERT IGNORE INTO roles VALUES (1, 'admin');
 INSERT IGNORE INTO roles VALUES (2, 'user');
 INSERT IGNORE INTO roles VALUES (3, 'guest');
 
-INSERT IGNORE INTO users VALUES (1, 'admin', 'admin', 1);
-INSERT IGNORE INTO users VALUES (2, 'user', 'user', 2);
+INSERT IGNORE INTO users VALUES (1, 'admin', '$2a$10$O1.i1OSiGGYvDNUSPanjmuHQBjAc1kGXMSQUKV9XIbUFq8GCXEnvm', 1);
+INSERT IGNORE INTO users VALUES (2, 'user', '$2a$10$LG.u8htgL7YFH9VJTAhrqu/gaS818IHzBYwylewZu7oyBLN1GTydG', 2);
+INSERT IGNORE INTO users VALUES(3, 'guest', '$2a$10$oc3RUfaamFNKVhNa2vuyPuj0grbXVijmb1QSGnR6YYeKPDRiPQauS', 3)
 
 INSERT IGNORE INTO vets VALUES (1, 'James', 'Carter');
 INSERT IGNORE INTO vets VALUES (2, 'Helen', 'Leary');
