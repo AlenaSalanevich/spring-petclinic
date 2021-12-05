@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.vet;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,6 +47,7 @@ class VetController {
 		return "vets/vetList";
 	}
 
+	@PreAuthorize("hasPermission(principal, 'ADMIN')")
 	@GetMapping({ "/vets" })
 	public @ResponseBody Vets showResourcesVetList() {
 		// Here we are returning an object of type 'Vets' rather than a collection of Vet
@@ -54,5 +56,4 @@ class VetController {
 		vets.getVetList().addAll(this.vets.findAll());
 		return vets;
 	}
-
 }

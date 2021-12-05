@@ -1,3 +1,10 @@
+INSERT IGNORE INTO roles VALUES (1, 'admin');
+INSERT IGNORE INTO roles VALUES (2, 'user');
+INSERT IGNORE INTO roles VALUES (3, 'guest');
+
+INSERT IGNORE INTO users VALUES (1, 'admin', 'admin', 1);
+INSERT IGNORE INTO users VALUES (2, 'user', 'user', 2);
+
 INSERT IGNORE INTO vets VALUES (1, 'James', 'Carter');
 INSERT IGNORE INTO vets VALUES (2, 'Helen', 'Leary');
 INSERT IGNORE INTO vets VALUES (3, 'Linda', 'Douglas');

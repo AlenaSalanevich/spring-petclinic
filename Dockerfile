@@ -1,6 +1,10 @@
-FROM openjdk:8-jdk-alpine
+#FROM openjdk:8-jdk-alpine
 
-COPY ../spring-petclinic/target/spring-petclinic-2.4.5.jar  app.jar
+FROM ubuntu:18.04
+
+COPY ../target/spring-petclinic-2.4.5.jar  app.jar
+
+RUN apt update&&apt install openjdk-8-jre-headless&&apt-get install ssh
 
 ENV JVM_OPTS="-Xmx1024m -Xms512m"
 
